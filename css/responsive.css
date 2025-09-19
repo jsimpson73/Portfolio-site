@@ -1,0 +1,281 @@
+/* ===== MEDIA QUERIES ===== */
+
+/* Large Devices (Desktops & Laptops) */
+@media screen and (max-width: 1200px) {
+  .container {
+    max-width: 100%;
+    padding: 0 var(--spacing-lg);
+  }
+}
+
+/* Medium Devices (Tablets) */
+@media screen and (max-width: 992px) {
+  html {
+    font-size: 56.25%; /* 1rem = 9px */
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .about-image {
+    margin-bottom: var(--spacing-md);
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .skills-list {
+    justify-content: center;
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .contact-info {
+    order: 2;
+  }
+  
+  .contact-form {
+    order: 1;
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+/* Small Devices (Mobile Landscape) */
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 50%; /* 1rem = 8px */
+  }
+  
+  .section {
+    padding: var(--spacing-lg) 0;
+  }
+  
+  .hamburger {
+    display: block;
+  }
+  
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    flex-direction: column;
+    text-align: center;
+    transition: all var(--transition-fast);
+    box-shadow: var(--box-shadow);
+    padding: var(--spacing-md) 0;
+    z-index: 999;
+  }
+  
+  .nav-menu.active {
+    top: 7rem;
+  }
+  
+  .nav-item {
+    margin: var(--spacing-sm) 0;
+  }
+  
+  .nav-link::after {
+    display: none;
+  }
+  
+  .hero-title {
+    font-size: 4.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 2rem;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .hero-cta .btn {
+    width: 100%;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .portfolio-filter {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .testimonial-slider {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .slider-nav {
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  .slider-prev {
+    left: -1rem;
+  }
+  
+  .slider-next {
+    right: -1rem;
+  }
+  
+  .footer-links,
+  .footer-social {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+/* Extra Small Devices (Mobile Portrait) */
+@media screen and (max-width: 480px) {
+  .section-title {
+    font-size: 3rem;
+  }
+  
+  .hero-title {
+    font-size: 3.6rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.8rem;
+  }
+  
+  .portfolio-filter {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .filter-btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .testimonial-item {
+    padding: var(--spacing-md);
+  }
+  
+  .testimonial-text::before,
+  .testimonial-text::after {
+    font-size: 3rem;
+  }
+  
+  .slider-nav {
+    display: none;
+  }
+  
+  .contact-form {
+    padding: var(--spacing-md);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .header,
+  .footer,
+  .contact-form,
+  .hero-cta,
+  .scroll-down,
+  .portfolio-filter,
+  .slider-nav,
+  .slider-dots {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    background-color: #fff;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .section {
+    padding: 20pt 0;
+    page-break-inside: avoid;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+  
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+  
+  .about-content,
+  .services-grid,
+  .portfolio-grid,
+  .contact-content {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .portfolio-item {
+    break-inside: avoid;
+    margin-bottom: 20pt;
+  }
+  
+  .portfolio-overlay {
+    position: static;
+    opacity: 1;
+    background-color: transparent;
+    color: #000;
+    padding: 10pt 0;
+  }
+  
+  .portfolio-title,
+  .portfolio-category {
+    color: #000;
+  }
+  
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+  
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+  }
+}
