@@ -41,6 +41,28 @@ body.dark-theme .section:nth-child(odd) {
     background-color: #121212;
 }
 
+/* Questions for Employers Section */
+body.dark-theme .questions-for-employers {
+    text-align: left;
+    background-color: #1a1a2e;
+    color: #ffffff;
+    padding: var(--spacing-lg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+body.dark-theme .questions-for-employers h3 {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+body.dark-theme .questions-for-employers li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+    color: #ffffff
+}
+
 /* About Section */
 body.dark-theme .about {
     background-color: #121212;
