@@ -297,6 +297,10 @@ button:hover, .btn:hover {
   animation: fadeInUp 1s forwards 1.1s;
 }
 
+.resume-btn {
+  padding-top: 10px;
+}
+
 .scroll-down {
   position: absolute;
   bottom: 3rem;
