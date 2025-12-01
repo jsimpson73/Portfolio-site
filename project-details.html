@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="John Simpson">
+    <title>E-commerce Website Project | John Doe - Web Developer Portfolio</title>
+    <meta name="description" content="Detailed case study of an e-commerce website project developed by John Doe, showcasing the process, challenges, and solutions.">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dark-theme.css">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#2d3e50">
+    
+    <style>
+        /* Additional styles specific to project details page */
+        .project-header {
+            height: 50vh;
+            min-height: 400px;
+            background: linear-gradient(rgba(45, 62, 80, 0.8), rgba(45, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+        
+        .project-header-content {
+            max-width: 800px;
+        }
+        
+        .project-title {
+            font-size: 4.8rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+        
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .project-meta-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .project-meta-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .project-meta-text h4 {
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        
+        .project-meta-text p {
+            margin-bottom: 0;
+            color: var(--light-color);
+        }
+        
+        .project-cta {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .project-section {
+            padding: 8rem 0;
+        }
+        
+        .project-section:nth-child(even) {
+            background-color: var(--light-color);
+        }
+        
+        .project-section-title {
+            margin-bottom: 4rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .project-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 0;
+            width: 6rem;
+            height: 0.4rem;
+            background-color: var(--secondary-color);
+        }
+        
+        .project-overview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .project-overview-content h3 {
+            margin-bottom: 2rem;
+        }
+        
+        .project-overview-content p {
+            margin-bottom: 2rem;
+        }
+        
+        .project-overview-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .project-challenge {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 3rem;
+        }
+        
+        .project-challenge-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .project-challenge-icon {
+            font-size: 2.4rem;
+            color: var(--accent-color);
+            margin-right: 1.5rem;
+        }
+        
+        .project-solution {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 3rem;
+        }
+        
+        .project-solution-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .project-solution-icon {
+            font-size: 2.4rem;
+            color: var(--secondary-color);
+            margin-right: 1.5rem;
+        }
+        
+        .project-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+            gap: 3rem;
+        }
+        
+        .project-feature {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            box-shadow: var(--box-shadow);
+            transition: all var(--transition-fast);
+        }
+        
+        .project-feature:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .project-feature-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+        }
+        
+        .project-feature-title {
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-gallery-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .project-gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .project-gallery-img {
+            width: 100%;
+            height: 25rem;
+            object-fit: cover;
+        }
+        
+        .project-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .project-tech-item {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .project-tech-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .project-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 3rem;
+        }
+        
+        .project-result {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+        
+        .project-result-number {
+            font-size: 4.8rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-result-text {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        
+        .project-testimonial {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 4rem;
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+        
+        .project-testimonial::before {
+            content: '\201C';
+            font-size: 8rem;
+            font-family: serif;
+            color: var(--secondary-color);
+            opacity: 0.2;
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+        }
+        
+        .project-testimonial-text {
+            font-style: italic;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .project-testimonial-img {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 2rem;
+        }
+        
+        .project-testimonial-name {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-testimonial-position {
+            color: var(--gray-color);
+        }
+        
+        .project-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8rem;
+        }
+        
+        .project-nav-link {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 1.5rem 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: all var(--transition-fast);
+        }
+        
+        .project-nav-link:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .project-nav-icon {
+            font-size: 2rem;
+        }
+        
+        .project-nav-prev .project-nav-icon {
+            margin-right: 1.5rem;
+        }
+        
+        .project-nav-next .project-nav-icon {
+            margin-left: 1.5rem;
+        }
+        
+        .project-nav-text {
+            font-weight: 600;
+        }
+        
+        @media screen and (max-width: 992px) {
+            .project-overview {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-overview-image {
+                order: -1;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .project-title {
+                font-size: 3.6rem;
+            }
+            
+            .project-meta {
+                gap: 2rem;
+            }
+            
+            .project-cta {
+                flex-direction: column;
+            }
+            
+            .project-cta .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .project-section {
+                padding: 6rem 0;
+            }
+            
+            .project-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-navigation {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .project-nav-link {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">John<span>Doe</span></a>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="index.html#services" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="projects.html" class="nav-link active">Projects</a></li>
+                    <li class="nav-item"><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                
+                <!-- Theme Switcher -->
+                <div class="theme-switch">
+                    <input type="checkbox" id="theme-switcher">
+                    <label for="theme-switcher" class="switch-label">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </label>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Project Header -->
+    <section class="project-header">
+        <div class="container">
+            <div class="project-header-content">
+                <h1 class="project-title">Modern E-commerce Platform</h1>
+                
+                <div class="project-meta">
+                    <div class="project-meta-item">
+                        <div class="project-meta-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="project-meta-text">
+                            <h4>Client</h4>
+                            <p>ABC Fashion Retailer</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-meta-item">
+                        <div class="project-meta-icon">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="project-meta-text">
+                            <h4>Date</h4>
+                            <p>January 2023</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-meta-item">
+                        <div class="project-meta-icon">
+                            <i class="fas fa-tag"></i>
+                        </div>
+                        <div class="project-meta-text">
+                            <h4>Category</h4>
+                            <p>Web Development, E-commerce</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-cta">
+                    <a href="https://example.com" target="_blank" class="btn">Visit Website</a>
+                    <a href="https://github.com" target="_blank" class="btn btn-outline">View Code</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Project Overview Section -->
+    <section class="project-section">
+        <div class="container">
+            <h2 class="project-section-title">Project Overview</h2>
+            
+            <div class="project-overview">
+                <div class="project-overview-content">
+                    <h3>A Modern E-commerce Solution for Fashion Retail</h3>
+                    <p>ABC Fashion Retailer needed a modern e-commerce platform to expand their business online and reach a wider audience. The client had an existing brick-and-mortar store but lacked an online presence, which was limiting their growth potential in today's digital marketplace.</p>
+                    <p>The goal was to create a fully responsive, user-friendly e-commerce website that would showcase their products effectively, provide a seamless shopping experience, and integrate with their existing inventory management system.</p>
+                    <p>The project involved designing and developing a complete e-commerce solution, including product catalog, user authentication, shopping cart functionality, secure payment processing, and an admin dashboard for managing products, orders, and customer data.</p>
+                </div>
+                <div class="project-overview-image">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" alt="E-commerce Website Overview">
+                </div>
+            </div>
+            
+            <div class="project-tech-stack">
+                <div class="project-tech-item">
+                    <div class="project-tech-icon">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <span>React</span>
+                </div>
+                <div class="project-tech-item">
+                    <div class="project-tech-icon">
+                        <i class="fab fa-node-js"></i>
+                    </div>
+                    <span>Node.js</span>
+                </div>
+                <div class="project-tech-item">
+                    <div class="project-tech-icon">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <span>Express</span>
+                </div>
+                <div class="project-tech-item">
+                    <div class="project-tech-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <span>MongoDB</span>
+                </div>
+                <div class="project-tech-item">
+                    <div class="project-tech-icon">
+                        <i class="fab fa-stripe"></i>
+                    </div>
+                    <span>Stripe API</span>
+                </div>
+                <div class="project-tech-item">
+                    <div class="project-tech-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <span>Redux</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Challenges & Solutions Section -->
+    <section class="project-section" style="background-color: var(--light-color);">
+        <div class="container">
+            <h2 class="project-section-title">Challenges & Solutions</h2>
+            
+            <div class="project-challenge">
+                <div class="project-challenge-title">
+                    <div class="project-challenge-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Challenge 1: Inventory Synchronization</h3>
+                </div>
+                <p>The client had an existing inventory management system for their physical store. One of the main challenges was to ensure that the online store's inventory would stay synchronized with the physical store to prevent overselling and inventory discrepancies.</p>
+            </div>
+            
+            <div class="project-solution">
+                <div class="project-solution-title">
+                    <div class="project-solution-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Solution</h3>
+                </div>
+                <p>I developed a custom API integration that connected the client's existing inventory system with the new e-commerce platform. This integration enabled real-time inventory updates, ensuring that stock levels were always accurate across both online and offline channels.</p>
+                <p>The solution included automated alerts for low stock items and a reservation system that temporarily held inventory when items were added to a customer's cart, preventing inventory conflicts during the checkout process.</p>
+            </div>
+            
+            <div class="project-challenge">
+                <div class="project-challenge-title">
+                    <div class="project-challenge-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Challenge 2: Mobile Responsiveness</h3>
+                </div>
+                <p>The client's target audience included a significant number of mobile shoppers. Ensuring a seamless shopping experience across all devices, particularly on mobile, was crucial for the success of the platform.</p>
+            </div>
+            
+            <div class="project-solution">
+                <div class="project-solution-title">
+                    <div class="project-solution-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Solution</h3>
+                </div>
+                <p>I implemented a mobile-first design approach, ensuring that the website was fully responsive and optimized for all screen sizes. This included touch-friendly navigation, optimized product images, and a streamlined checkout process specifically designed for mobile users.</p>
+                <p>The solution also incorporated progressive web app (PWA) features, allowing users to install the website as an app on their mobile devices, access it offline, and receive push notifications for order updates and promotions.</p>
+            </div>
+            
+            <div class="project-challenge">
+                <div class="project-challenge-title">
+                    <div class="project-challenge-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Challenge 3: Payment Security</h3>
+                </div>
+                <p>Ensuring secure payment processing and protecting customer data was a top priority for the client, who was concerned about the risks associated with online transactions.</p>
+            </div>
+            
+            <div class="project-solution">
+                <div class="project-solution-title">
+                    <div class="project-solution-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Solution</h3>
+                </div>
+                <p>I integrated Stripe's secure payment gateway, which handles all sensitive payment information on their PCI-compliant servers, reducing the security burden on the client's system. This implementation included 3D Secure authentication for an additional layer of security.</p>
+                <p>The solution also incorporated data encryption for all customer information, secure user authentication with two-factor authentication options, and regular security audits to identify and address potential vulnerabilities.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Key Features Section -->
+    <section class="project-section">
+        <div class="container">
+            <h2 class="project-section-title">Key Features</h2>
+            
+            <div class="project-features">
+                <div class="project-feature">
+                    <div class="project-feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="project-feature-title">Advanced Product Search</h3>
+                    <p>Implemented an intelligent search system with filters for categories, sizes, colors, price ranges, and more. The search functionality includes autocomplete suggestions and remembers user preferences for future visits.</p>
+                </div>
+                
+                <div class="project-feature">
+                    <div class="project-feature-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="project-feature-title">Seamless Shopping Cart</h3>
+                    <p>Developed a persistent shopping cart that saves items even when users leave the site, with real-time inventory checks and easy modification of quantities, sizes, and colors.</p>
+                </div>
+                
+                <div class="project-feature">
+                    <div class="project-feature-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3 class="project-feature-title">Secure Checkout</h3>
+                    <p>Integrated a streamlined, multi-step checkout process with multiple payment options, address validation, shipping method selection, and order summary review.</p>
+                </div>
+                
+                <div class="project-feature">
+                    <div class="project-feature-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="project-feature-title">User Accounts</h3>
+                    <p>Created comprehensive user accounts where customers can view order history, save favorite items, manage shipping addresses, and update payment methods.</p>
+                </div>
+                
+                <div class="project-feature">
+                    <div class="project-feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="project-feature-title">Admin Dashboard</h3>
+                    <p>Built a powerful admin interface for managing products, processing orders, viewing analytics, and handling customer inquiries, with role-based access control.</p>
+                </div>
+                
+                <div class="project-feature">
+                    <div class="project-feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3 class="project-feature-title">Notifications System</h3>
+                    <p>Implemented automated email notifications for order confirmations, shipping updates, and delivery confirmations, with optional SMS alerts for important updates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Project Gallery Section -->
+    <section class="project-section" style="background-color: var(--light-color);">
+        <div class="container">
+            <h2 class="project-section-title">Project Gallery</h2>
+            
+            <div class="project-gallery">
+                <div class="project-gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" alt="Homepage Design" class="project-gallery-img">
+                </div>
+                
+                <div class="project-gallery-item">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1115&q=80" alt="Product Listing Page" class="project-gallery-img">
+                </div>
+                
+                <div class="project-gallery-item">
+                    <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1036&q=80" alt="Product Detail Page" class="project-gallery-img">
+                </div>
+                
+                <div class="project-gallery-item">
+                    <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Shopping Cart" class="project-gallery-img">
+                </div>
+                
+                <div class="project-gallery-item">
+                    <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Checkout Process" class="project-gallery-img">
+                </div>
+                
+                <div class="project-gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" alt="Admin Dashboard" class="project-gallery-img">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Development Process Section -->
+    <section class="project-section">
+        <div class="container">
+            <h2 class="project-section-title">Development Process</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>1. Discovery & Planning</h3>
+                        <p>The project began with a comprehensive discovery phase, where I worked closely with the client to understand their business goals, target audience, and specific requirements for the e-commerce platform.</p>
+                        <p>This phase included competitive analysis, user research, and the development of user personas to guide the design and functionality decisions. I also conducted a technical assessment of the client's existing systems to plan for integration requirements.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2. UX/UI Design</h3>
+                        <p>Based on the insights gathered during the discovery phase, I created wireframes and user flow diagrams to establish the structure and functionality of the website. These were refined through client feedback and usability testing.</p>
+                        <p>Once the wireframes were approved, I developed high-fidelity mockups that showcased the visual design, including color schemes, typography, and imagery that aligned with the client's brand identity.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>3. Frontend Development</h3>
+                        <p>Using React and Redux, I built a responsive and interactive frontend that provided a seamless shopping experience across all devices. The implementation focused on performance optimization, accessibility, and SEO best practices.</p>
+                        <p>Key components included product listings with filtering and sorting capabilities, detailed product pages with image galleries, a persistent shopping cart, and a streamlined checkout process.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>4. Backend Development</h3>
+                        <p>I developed a robust backend using Node.js and Express, with MongoDB as the database. The backend handled user authentication, product management, order processing, and integration with third-party services.</p>
+                        <p>RESTful APIs were created to facilitate communication between the frontend and backend, ensuring efficient data exchange and real-time updates.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>5. Integration & Testing</h3>
+                        <p>This phase involved integrating the e-commerce platform with various third-party services, including payment gateways, shipping providers, and the client's existing inventory management system.</p>
+                        <p>Comprehensive testing was conducted, including unit testing, integration testing, and user acceptance testing, to ensure the platform functioned correctly and provided a smooth user experience.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>6. Deployment & Launch</h3>
+                        <p>The e-commerce platform was deployed to a production environment with proper configuration for performance, security, and scalability. This included setting up CDN integration, SSL certificates, and database optimization.</p>
+                        <p>A soft launch was conducted to gather initial feedback and make any necessary adjustments before the full public launch.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>7. Post-Launch Support</h3>
+                        <p>After the successful launch, I provided ongoing support and maintenance to ensure the platform continued to function optimally. This included monitoring performance, addressing any issues that arose, and implementing minor enhancements based on user feedback.</p>
+                        <p>I also conducted training sessions for the client's staff to ensure they could effectively manage the platform through the admin dashboard.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Results Section -->
+    <section class="project-section" style="background-color: var(--light-color);">
+        <div class="container">
+            <h2 class="project-section-title">Results & Impact</h2>
+            
+            <div class="project-results">
+                <div class="project-result">
+                    <div class="project-result-number">45%</div>
+                    <div class="project-result-text">Increase in Online Sales</div>
+                </div>
+                
+                <div class="project-result">
+                    <div class="project-result-number">32%</div>
+                    <div class="project-result-text">Increase in Conversion Rate</div>
+                </div>
+                
+                <div class="project-result">
+                    <div class="project-result-number">58%</div>
+                    <div class="project-result-text">Increase in Mobile Traffic</div>
+                </div>
+                
+                <div class="project-result">
+                    <div class="project-result-number">27%</div>
+                    <div class="project-result-text">Reduction in Cart Abandonment</div>
+                </div>
+            </div>
+            
+            <div class="project-testimonial">
+                <p class="project-testimonial-text">John transformed our business with this exceptional e-commerce platform. The website is not only visually stunning but also incredibly functional and user-friendly. Our online sales have increased significantly, and the integration with our existing systems has streamlined our operations. John was professional, responsive, and truly understood our business needs. We couldn't be happier with the results!</p>
+                <div class="project-testimonial-author">
+                    <div class="project-testimonial-img">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Johnson">
+                    </div>
+                    <div>
+                        <h4 class="project-testimonial-name">Michael Johnson</h4>
+                        <p class="project-testimonial-position">CEO, ABC Fashion Retailer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="project-section">
+        <div class="container">
+            <div class="cta-box" style="text-align: center;">
+                <h2>Ready to Start Your Project?</h2>
+                <p style="max-width: 600px; margin: 0 auto 3rem;">I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+                <a href="contact.html" class="btn">Get In Touch</a>
+            </div>
+            
+            <div class="project-navigation">
+                <a href="projects.html" class="project-nav-link project-nav-prev">
+                    <div class="project-nav-icon">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <div class="project-nav-text">Previous Project</div>
+                </a>
+                
+                <a href="projects.html" class="project-nav-link project-nav-next">
+                    <div class="project-nav-text">Next Project</div>
+                    <div class="project-nav-icon">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">John<span>Doe</span></div>
+                <p class="footer-text">Creating innovative web solutions that help businesses grow and succeed in the digital world.</p>
+                
+                <ul class="footer-links">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="index.html#about" class="footer-link">About</a></li>
+                    <li><a href="index.html#services" class="footer-link">Services</a></li>
+                    <li><a href="projects.html" class="footer-link">Projects</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact</a></li>
+                </ul>
+                
+                <div class="footer-social">
+                    <a href="https://github.com" target="_blank" class="footer-social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="footer-social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="footer-social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://dribbble.com" target="_blank" class="footer-social-link">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                </div>
+                
+                <p class="copyright">&copy; 2025 John Doe. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    
+    <script>
+        // Image Gallery Modal
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryItems = document.querySelectorAll('.project-gallery-item');
+            
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const imgSrc = this.querySelector('img').src;
+                    const imgAlt = this.querySelector('img').alt;
+                    
+                    // Create modal
+                    const modal = document.createElement('div');
+                    modal.className = 'gallery-modal';
+                    modal.innerHTML = `
+                        <div class="gallery-modal-content">
+                            <span class="gallery-modal-close">&times;</span>
+                            <img src="${imgSrc}" alt="${imgAlt}">
+                            <p>${imgAlt}</p>
+                        </div>
+                    `;
+                    
+                    // Add modal to body
+                    document.body.appendChild(modal);
+                    
+                    // Show modal
+                    setTimeout(() => {
+                        modal.style.opacity = '1';
+                    }, 10);
+                    
+                    // Close modal on click
+                    modal.addEventListener('click', function(e) {
+                        if (e.target === modal || e.target.className === 'gallery-modal-close') {
+                            modal.style.opacity = '0';
+                            setTimeout(() => {
+                                document.body.removeChild(modal);
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        });
+        
+        // Add styles for gallery modal
+        const style = document.createElement('style');
+        style.textContent = `
+            .gallery-modal {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+            
+            .gallery-modal-content {
+                position: relative;
+                max-width: 90%;
+                max-height: 90%;
+            }
+            
+            .gallery-modal-content img {
+                max-width: 100%;
+                max-height: 80vh;
+                display: block;
+                border-radius: 4px;
+            }
+            
+            .gallery-modal-content p {
+                color: white;
+                text-align: center;
+                margin-top: 1rem;
+            }
+            
+            .gallery-modal-close {
+                position: absolute;
+                top: -40px;
+                right: 0;
+                color: white;
+                font-size: 3rem;
+                cursor: pointer;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

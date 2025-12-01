@@ -1,0 +1,683 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="John Simpson">
+    <title>Contact | John Doe - Web Developer Portfolio</title>
+    <meta name="description" content="Get in touch with John Doe for web development projects, collaborations, or inquiries.">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#2d3e50">
+    
+    <style>
+        /* Additional styles specific to contact page */
+        .contact-hero {
+            height: 50vh;
+            min-height: 400px;
+            background: linear-gradient(rgba(45, 62, 80, 0.9), rgba(45, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1516387938699-a93567ec168e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .contact-hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+        
+        .contact-hero-title {
+            font-size: 4.8rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+        
+        .contact-hero-subtitle {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--light-color);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+        }
+        
+        .contact-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            box-shadow: var(--box-shadow);
+            height: 100%;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-info-icon {
+            font-size: 2.4rem;
+            color: var(--secondary-color);
+            margin-right: 1.5rem;
+            min-width: 3rem;
+            text-align: center;
+        }
+        
+        .contact-info-content h4 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info-content p {
+            margin-bottom: 0;
+            color: var(--gray-color);
+        }
+        
+        .contact-social {
+            margin-top: 3rem;
+        }
+        
+        .contact-social-title {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .contact-social-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 4.5rem;
+            height: 4.5rem;
+            background-color: var(--light-color);
+            border-radius: 50%;
+            transition: all var(--transition-fast);
+        }
+        
+        .contact-social-link i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            transition: all var(--transition-fast);
+        }
+        
+        .contact-social-link:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .contact-social-link:hover i {
+            color: white;
+        }
+        
+        .contact-form-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .contact-form-title {
+            margin-bottom: 3rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: var(--body-font);
+            font-size: 1.6rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(26, 188, 156, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 15rem;
+            resize: vertical;
+        }
+        
+        .form-submit {
+            width: 100%;
+            padding: 1.5rem;
+        }
+        
+        .error-message {
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            margin-top: 0.5rem;
+        }
+        
+        .success-message {
+            background-color: rgba(26, 188, 156, 0.1);
+            color: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-top: 4rem;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        @media screen and (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                margin-bottom: 3rem;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .contact-hero-title {
+                font-size: 3.6rem;
+            }
+            
+            .contact-hero-subtitle {
+                font-size: 1.8rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .contact-card,
+            .contact-form-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">John<span>Doe</span></a>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="index.html#services" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link active">Contact</a></li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                
+                <!-- Theme Switcher -->
+                <div class="theme-switch">
+                    <input type="checkbox" id="theme-switcher">
+                    <label for="theme-switcher" class="switch-label">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </label>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+        <div class="contact-hero-content">
+            <h1 class="contact-hero-title">Get In Touch</h1>
+            <p class="contact-hero-subtitle">Have a project in mind? Let's discuss how I can help bring your ideas to life.</p>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Information -->
+                <div class="contact-info reveal">
+                    <div class="contact-card">
+                        <h2 class="contact-info-title">Contact Information</h2>
+                        <p class="contact-info-subtitle">Feel free to reach out through any of the following channels:</p>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h4>Location</h4>
+                                <p>123 Web Dev Street, San Francisco, CA 94107</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h4>Email</h4>
+                                <p>john.doe@example.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h4>Phone</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h4>Working Hours</h4>
+                                <p>Monday - Friday: 9AM - 5PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-social">
+                            <h4 class="contact-social-title">Connect With Me</h4>
+                            <div class="contact-social-links">
+                                <a href="https://github.com" target="_blank" class="contact-social-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://linkedin.com" target="_blank" class="contact-social-link">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://twitter.com" target="_blank" class="contact-social-link">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://dribbble.com" target="_blank" class="contact-social-link">
+                                    <i class="fab fa-dribbble"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form-container reveal">
+                    <div class="contact-form-card">
+                        <h2 class="contact-form-title">Send Me a Message</h2>
+                        
+                        <!-- Success Message (Initially Hidden) -->
+                        <div class="success-message" id="success-message" style="display: none;">
+                            Your message has been sent successfully! I'll get back to you as soon as possible.
+                        </div>
+                        
+                        <form id="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Your Name</label>
+                                    <input type="text" id="name" class="form-control" placeholder="John Smith" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Your Email</label>
+                                    <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" id="phone" class="form-control" placeholder="+1 (555) 123-4567">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <input type="text" id="subject" class="form-control" placeholder="Project Inquiry" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" class="form-label">Your Message</label>
+                                <textarea id="message" class="form-control" placeholder="Tell me about your project..." required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="budget" class="form-label">Project Budget (Optional)</label>
+                                <select id="budget" class="form-control">
+                                    <option value="">Select Budget Range</option>
+                                    <option value="less-than-1000">Less than $1,000</option>
+                                    <option value="1000-3000">$1,000 - $3,000</option>
+                                    <option value="3000-5000">$3,000 - $5,000</option>
+                                    <option value="5000-10000">$5,000 - $10,000</option>
+                                    <option value="more-than-10000">More than $10,000</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Services You're Interested In</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="services" value="web-development"> Web Development
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="services" value="ui-ux-design"> UI/UX Design
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="services" value="mobile-app"> Mobile App Development
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="services" value="ecommerce"> E-commerce Solutions
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn form-submit">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Map Section -->
+            <div class="map-container reveal">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100939.98555098464!2d-122.50764017948551!3d37.75781499657633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1651234567890!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="section" style="background-color: var(--light-color);">
+        <div class="container">
+            <h2 class="section-title reveal">Frequently Asked Questions</h2>
+            
+            <div class="faq-container reveal">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is your typical process for a new project?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>My process typically involves an initial consultation to understand your requirements, followed by research and planning. I then create wireframes and mockups for approval before proceeding to development. Throughout the process, I maintain regular communication and provide updates on progress.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does it take to complete a website?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The timeline varies depending on the complexity of the project. A simple website might take 2-4 weeks, while more complex projects with custom functionality could take 8-12 weeks or more. I'll provide a detailed timeline during our initial consultation based on your specific requirements.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What information do you need to provide a quote?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To provide an accurate quote, I need to understand your project goals, target audience, desired features and functionality, design preferences, and timeline. The more details you can provide, the more accurate the quote will be. I'm happy to schedule a consultation to discuss your project in depth.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you offer website maintenance services?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, I offer website maintenance services to ensure your website remains secure, up-to-date, and performing optimally. This includes regular updates, security monitoring, performance optimization, content updates, and technical support. I offer various maintenance packages to suit different needs and budgets.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can you help with existing websites or only new ones?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>I work with both new and existing websites. Whether you need a complete redesign, specific improvements, or troubleshooting for an existing site, I can help. I'll assess your current website and provide recommendations based on your goals and budget.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">John<span>Doe</span></div>
+                <p class="footer-text">Creating innovative web solutions that help businesses grow and succeed in the digital world.</p>
+                
+                <ul class="footer-links">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="index.html#about" class="footer-link">About</a></li>
+                    <li><a href="index.html#services" class="footer-link">Services</a></li>
+                    <li><a href="projects.html" class="footer-link">Projects</a></li>
+                    <li><a href="#" class="footer-link">Contact</a></li>
+                </ul>
+                
+                <div class="footer-social">
+                    <a href="https://github.com" target="_blank" class="footer-social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="footer-social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="footer-social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://dribbble.com" target="_blank" class="footer-social-link">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                </div>
+                
+                <p class="copyright">&copy; 2025 John Doe. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    
+    <script>
+        // FAQ Accordion
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const icon = item.querySelector('.faq-icon i');
+                
+                // Initially hide all answers
+                answer.style.display = 'none';
+                
+                question.addEventListener('click', function() {
+                    // Toggle answer visibility
+                    if (answer.style.display === 'none') {
+                        answer.style.display = 'block';
+                        icon.classList.remove('fa-plus');
+                        icon.classList.add('fa-minus');
+                        item.classList.add('active');
+                    } else {
+                        answer.style.display = 'none';
+                        icon.classList.remove('fa-minus');
+                        icon.classList.add('fa-plus');
+                        item.classList.remove('active');
+                    }
+                });
+            });
+        });
+        
+        // Contact Form Submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            const successMessage = document.getElementById('success-message');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form fields
+                    const nameInput = document.getElementById('name');
+                    const emailInput = document.getElementById('email');
+                    const phoneInput = document.getElementById('phone');
+                    const subjectInput = document.getElementById('subject');
+                    const messageInput = document.getElementById('message');
+                    
+                    // Validate form fields
+                    let isValid = true;
+                    
+                    if (nameInput.value.trim() === '') {
+                        showError(nameInput, 'Name is required');
+                        isValid = false;
+                    } else {
+                        removeError(nameInput);
+                    }
+                    
+                    if (emailInput.value.trim() === '') {
+                        showError(emailInput, 'Email is required');
+                        isValid = false;
+                    } else if (!isValidEmail(emailInput.value)) {
+                        showError(emailInput, 'Please enter a valid email');
+                        isValid = false;
+                    } else {
+                        removeError(emailInput);
+                    }
+                    
+                    if (subjectInput.value.trim() === '') {
+                        showError(subjectInput, 'Subject is required');
+                        isValid = false;
+                    } else {
+                        removeError(subjectInput);
+                    }
+                    
+                    if (messageInput.value.trim() === '') {
+                        showError(messageInput, 'Message is required');
+                        isValid = false;
+                    } else {
+                        removeError(messageInput);
+                    }
+                    
+                    // If form is valid, submit it
+                    if (isValid) {
+                        // In a real application, you would send the form data to a server
+                        // For this example, we'll just show a success message
+                        
+                        // Show success message
+                        successMessage.style.display = 'block';
+                        
+                        // Reset form
+                        contactForm.reset();
+                        
+                        // Scroll to success message
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        
+                        // Hide success message after 5 seconds
+                        setTimeout(() => {
+                            successMessage.style.display = 'none';
+                        }, 5000);
+                    }
+                });
+            }
+            
+            // Helper function to show error message
+            function showError(input, message) {
+                const formGroup = input.parentElement;
+                let errorMessage = formGroup.querySelector('.error-message');
+                
+                if (!errorMessage) {
+                    errorMessage = document.createElement('div');
+                    errorMessage.className = 'error-message';
+                    formGroup.appendChild(errorMessage);
+                }
+                
+                errorMessage.textContent = message;
+                input.classList.add('error');
+            }
+            
+            // Helper function to remove error message
+            function removeError(input) {
+                const formGroup = input.parentElement;
+                const errorMessage = formGroup.querySelector('.error-message');
+                
+                if (errorMessage) {
+                    formGroup.removeChild(errorMessage);
+                }
+                
+                input.classList.remove('error');
+            }
+            
+            // Helper function to validate email
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+        });
+    </script>
+</body>
+</html>
